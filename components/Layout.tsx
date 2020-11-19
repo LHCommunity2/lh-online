@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalStyle } from "../styles";
 import { Sidebar } from "../components";
 import styled from "styled-components";
@@ -8,43 +8,23 @@ interface PropTypes {
   children: React.ReactNode;
 }
 
-const LayoutStyled = styled.div`
-  .menu {
-    display: none;
-    text-align: right;
-
-    svg {
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-    }
-
-    @media (max-width: 768px) {
-      transition: var(--transition);
-      padding: 0 25px 0;
-      display: block;
-    }
-  }
-`;
+const LayoutStyled = styled.div``;
 
 const Layout: React.FC<PropTypes> = ({ children }) => {
-  const { toggleSidebar, dispatch } = useContext(GlobalStateContext);
+  const { state, dispatch } = useContext(GlobalStateContext);
 
   const toggle = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
 
     dispatch({
       type: "toggleSidebar",
-      payload: { toggleSidebar: !toggleSidebar.status },
+      payload: { toggleSidebar: !state },
     });
   };
 
   return (
     <LayoutStyled>
-      <Sidebar
-        toggleSidebar={toggleSidebar.status}
-        close={(event) => toggle(event)}
-      />
+      <Sidebar toggleSidebar={state} close={(event) => toggle(event)} />
       <GlobalStyle />
       {children}
     </LayoutStyled>

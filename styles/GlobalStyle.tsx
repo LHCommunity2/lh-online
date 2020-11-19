@@ -81,12 +81,11 @@ const GlobalStyled = createGlobalStyle`
 
   .line-animation {
     text-decoration: none;
-    position: absolute;
     color : var(--white);
-    padding : 0px 5px;
     z-index : 10;
 
     &:after {
+      margin: 6px 0;
       content: "";
       display: block;
       width: 0px;
@@ -109,11 +108,34 @@ const GlobalStyled = createGlobalStyle`
   }
 
   .background {
-    background: url("/image/background.png") no-repeat;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-  }
+        background: url("/video/background.png") no-repeat;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        display: none;
+
+      @media (max-width: 768px){
+          display: block
+        }
+    }
+
+    #video {
+        display : block;
+
+        @media (min-aspect-ratio: 16/9) {
+          width: 100%;
+          height: 100%;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+          width: 100%;
+          height: auto;
+        }
+
+        @media (max-width: 768px){
+          display: none
+        }
+      }
 
   section {
     position: relative;
