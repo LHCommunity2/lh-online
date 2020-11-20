@@ -52,7 +52,7 @@ const NavbarStyled = styled.div<StyleTypes>`
       a {
         font-weight: bold;
         text-decoration: none;
-        color: #d1c6c6;
+        color: ${({ isScroll }) => (isScroll ? "#d1c6c6" : "#fff")};
 
         &:hover,
         &:focus {

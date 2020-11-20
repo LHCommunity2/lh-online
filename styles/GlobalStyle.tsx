@@ -30,7 +30,11 @@ const GlobalStyled = createGlobalStyle`
     --brown : #1C2427,
     --pink : #AD8184,
     --semi-black : #22343F;
+    --dirty-white : #A68585;
     --white : #FFFFFF;
+    --blue : #4789FF;
+    --light-blue : #9bb6e4;
+    --dark-blue :  rgba(73, 63, 104, 0.5);
     --green-tint: rgba(100, 255, 218, 0.1);
 
     --font-segoe : "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
@@ -121,15 +125,15 @@ const GlobalStyled = createGlobalStyle`
 
     #video {
         display : block;
-
+        object-fit: cover;
         @media (min-aspect-ratio: 16/9) {
           width: 100%;
-          height: 100%;
+          height: auto;
         }
 
         @media (max-aspect-ratio: 16/9) {
           width: 100%;
-          height: auto;
+          height: 100vh;
         }
 
         @media (max-width: 768px){
@@ -137,12 +141,39 @@ const GlobalStyled = createGlobalStyle`
         }
       }
 
+    main {
+      padding: 0 0 200px;
+
+      @media (max-width: 1080px) {
+        padding: 0 0 90px;
+      }
+
+      @media (max-width: 768px) {
+        padding: 0 0 60px;
+      }
+      
+      @media (max-width: 480px) {
+        padding: 0 0 30px;
+      }
+
+    }
+
   section {
     position: relative;
     margin : 0 auto;
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
+    padding: 0 100px 90px;
+    transition: var(--transition);
+
+    @media (max-width: 1080px) {
+      padding: 0 100px 90px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 10px 60px;
+    }
   }
 `;
 
