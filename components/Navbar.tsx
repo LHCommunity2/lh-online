@@ -81,8 +81,6 @@ const Navbar: React.FC = () => {
     }
   };
 
-  console.log(isScroll);
-
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
 

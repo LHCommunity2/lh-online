@@ -23,7 +23,6 @@ const initialState = false;
 
 const GlobalStateProvider: React.FC<PropTypes> = ({ children }) => {
   const reducer = (state: any, action: any) => {
-    console.log(state);
     switch (action.type) {
       case ACTION.toggleSidebar:
         return toggle(state, action);

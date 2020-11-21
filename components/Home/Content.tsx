@@ -2,17 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { ContentInformation } from "../../utils/config";
 import Icons from "../icons/icons";
-import Image from "next/image";
+//import Image from "next/image";
 
 const StyledImage = styled.div`
   position: relative;
   max-width: 300px;
   border-radius: 40px;
-
-  @media (max-width: 768px) {
-    margin: 50px auto 0px;
-    width: 70%;
-  }
+  margin: 0 auto;
 
   .wrapper {
     display: block;
@@ -20,48 +16,46 @@ const StyledImage = styled.div`
     width: 100%;
     border-radius: var(--border-radius);
 
-    -webkit-filter: var(--webkit-filter); /* Safari 6.0 - 9.0 */
+    -webkit-filter: var(--webkit-filter);
     filter: var(--filter);
 
     &:hover,
     &:focus {
       background: transparent;
       outline: 0;
-      -webkit-filter: var(--webkit-filter-colored); /* Safari 6.0 - 9.0 */
+      -webkit-filter: var(--webkit-filter-colored);
       filter: var(--filter-colored);
 
-      &:after {
+      /* &:after {
         top: 15px;
         left: 15px;
-      }
-
-      Image {
-        filter: none;
-        mix-blend-mode: normal;
-      }
+      } */
     }
 
-    Image {
+    img {
       position: relative;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
       transition: var(--transition);
-    }
 
+      @media (max-width: 1080px) {
+        width: 280px;
+        margin: 50px auto 0;
+      }
+    }
+    /* 
     &:before,
     &:after {
       content: "";
       display: block;
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 400px;
+      height: 400px;
       border-radius: var(--border-radius);
       transition: var(--transition);
     }
 
     &:before {
-      top: 0;
+      bottom: 0;
       left: 0;
       background-color: var(--navy);
       mix-blend-mode: screen;
@@ -69,78 +63,139 @@ const StyledImage = styled.div`
 
     &:after {
       border: 2px solid var(--light-blue);
-      top: 20px;
-      left: 20px;
-      bottom: -50px;
+      left: 50px;
+      bottom: 50px;
       z-index: -1;
-    }
+    } */
   }
 `;
 
 const StyledContent = styled.section`
-  /* display: grid; */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  position: relative;
+  line-height: 1;
+  align-items: center;
+  font-family: var(--font-segoe);
 
-  .project-content {
-    position: relative;
-    line-height: 1;
-    font-family: var(--font-sans);
+  @media (max-width: 1080px) {
+    display: block;
+  }
 
-    /* grid-column: 1 / 7;
-    grid-row: 1 / -1; */
-    svg {
-      margin: 20px 0;
-      border-radius: 50%;
-      background: var(--blue);
-      padding: 15px 15px;
-      width: 30px;
-      height: 30px;
-      box-shadow: 0 5px 10px var(--dark-blue);
+  @media (max-width: 768px) {
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 30px;
+  }
+
+  .learnMore {
+    font-size: var(--fz-lg);
+    font-weight: bold;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    margin: 45px auto;
+    cursor: pointer;
+
+    @media (max-width: 780px) {
+      font-size: var(--fz-sm);
     }
 
-    .title {
-      margin: 20px 0;
-      max-width: 500px;
-      color: #22343f;
+    &:hover,
+    &:focus {
+      transition: var(--transition);
+      transform: translateX(5px);
     }
 
-    .paragraph {
-      max-width: 570px;
-      line-height: 24px;
-      font-size: var(--fz-lg);
-      color: var(--dirty-white);
+    &:before {
+      margin: 0 13px 0 0;
+      content: "";
+      height: 1px;
+      width: 5%;
+      background-color: var(--blue);
+      display: block;
+
+      @media (max-width: 1080px) {
+        width: 6%;
+      }
+
+      @media (max-width: 780px) {
+        margin: 0 7px 0 0;
+        width: 8%;
+      }
+    }
+  }
+
+  svg {
+    margin: 0 0 20px;
+    border-radius: 50%;
+    background: var(--blue);
+    padding: 15px 15px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 5px 10px var(--dark-blue);
+  }
+
+  &:nth-of-type(even) {
+    .project-content {
+      grid-column: 7 / -1;
+      grid-row: 1 / 1;
+      text-align: left;
+
+      .content {
+        float: right;
+      }
+
+      @media (max-width: 1080px) {
+        grid-column: 5 / 1;
+        float: left;
+      }
+
+      @media (max-width: 768px) {
+        grid-column: 1 / 1;
+      }
     }
   }
 `;
 
 const Content: React.FC = () => {
   return (
-    <StyledContent>
+    <>
       {ContentInformation.map((info: any) => (
-        <div key={info.id}>
+        <StyledContent>
           <div className="project-content">
-            <div className="icons">
-              <Icons name={info.icon} />
-            </div>
-            <h1 className="title">{info.title}</h1>
+            <div className="content">
+              <div className="icons">
+                <Icons name={info.icon} />
+              </div>
+              <h1 className="title-heading ">{info.title}</h1>
 
-            <div
-              className="paragraph"
-              dangerouslySetInnerHTML={{ __html: info.paragraph }}
-            />
+              <div
+                className="paragraph"
+                dangerouslySetInnerHTML={{ __html: info.paragraph }}
+              />
+
+              <div className="learnMore">
+                <span>Learn More</span>
+              </div>
+            </div>
           </div>
           <StyledImage>
-            <div className="wrapper">
-              <Image
+            <div className={info.className}>
+              {/* <Image
                 src={`/image/Content/${info.image}`}
                 alt="Sample Image"
                 width={500}
                 height={500}
-              />
+              /> */}
+              <img src={`/image/Content/${info.image}`} alt="" />
             </div>
           </StyledImage>
-        </div>
+        </StyledContent>
       ))}
-    </StyledContent>
+    </>
   );
 };
 
