@@ -125,7 +125,7 @@ const Home: React.FC = () => {
           </div>
           <div className="section">
             <h1>
-              LIFE <span className="line">CHANGE</span>
+              LIFE <span className="line-big">CHANGE</span>
             </h1>
 
             <p>

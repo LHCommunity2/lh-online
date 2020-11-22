@@ -164,13 +164,13 @@ const Content: React.FC = () => {
   return (
     <>
       {ContentInformation.map((info: any) => (
-        <StyledContent>
+        <StyledContent key={info.id}>
           <div className="project-content">
             <div className="content">
               <div className="icons">
                 <Icons name={info.icon} />
               </div>
-              <h1 className="title-heading ">{info.title}</h1>
+              <h1 className="title-heading">{info.title}</h1>
 
               <div
                 className="paragraph"

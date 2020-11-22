@@ -63,4 +63,31 @@ const ContentInformation = [
   },
 ];
 
-export { SideBarLinks, ContentInformation };
+const ShortCutLinks = [
+  {
+    id: 1,
+    image: "location.png",
+    title: "Fing organization Location",
+    icon: "Location",
+  },
+  {
+    id: 2,
+    image: "smallGroup.png",
+    title: "Connect with the small group",
+    icon: "Group",
+  },
+  {
+    id: 3,
+    image: "volunteer.png",
+    title: "What to do good? Volunteer today.",
+    icon: "Heart",
+  },
+  {
+    id: 4,
+    image: "gadget.png",
+    title: "Grow spiritually with online tools",
+    icon: "Gadget",
+  },
+];
+
+export { SideBarLinks, ContentInformation, ShortCutLinks };

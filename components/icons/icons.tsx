@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Heart, Peace, Users } from "./index";
+import { Menu, Heart, Peace, Users, Location, Group, Gadget } from "./index";
 
 interface PropTypes {
   name: string;
@@ -15,6 +15,12 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
       return <Peace />;
     case "Users":
       return <Users />;
+    case "Location":
+      return <Location />;
+    case "Group":
+      return <Group />;
+    case "Gadget":
+      return <Gadget />;
   }
 };
 

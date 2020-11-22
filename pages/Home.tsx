@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
-import { LandingPage, Content } from "../components";
+import { LandingPage, Content, ShortcutLinks } from "../components";
 const Home: React.FC = () => {
   return (
     <Fragment>
       <LandingPage />
       <Content />
+      <ShortcutLinks />
     </Fragment>
   );
 };

@@ -67,7 +67,7 @@ const GlobalStyled = createGlobalStyle`
     --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
 
-  .line {
+  .line-big {
     text-decoration: none;
     position: absolute;
 
@@ -142,6 +142,7 @@ const GlobalStyled = createGlobalStyle`
         height: 100vh;
         background-size: cover;
         display: none;
+        filter: contrast(1.1);
 
       @media (max-width: 768px){
           display: block
@@ -151,6 +152,8 @@ const GlobalStyled = createGlobalStyle`
     #video {
         display : block;
         object-fit: cover;
+        filter: contrast(1);
+
         @media (min-aspect-ratio: 16/9) {
           width: 100%;
           height: auto;
