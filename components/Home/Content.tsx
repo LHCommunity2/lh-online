@@ -6,14 +6,14 @@ import Icons from "../icons/icons";
 
 const StyledImage = styled.div`
   position: relative;
-  max-width: 300px;
   border-radius: 40px;
   margin: 0 auto;
 
   .wrapper {
     display: block;
     position: relative;
-    width: 100%;
+    max-width: 1000px;
+    text-align: center;
     border-radius: var(--border-radius);
 
     -webkit-filter: var(--webkit-filter);
@@ -34,12 +34,21 @@ const StyledImage = styled.div`
 
     img {
       position: relative;
+      object-fit: cover;
+      width: 400px;
+      height: 400px;
       border-radius: var(--border-radius);
       transition: var(--transition);
 
-      @media (max-width: 1080px) {
-        width: 280px;
-        margin: 50px auto 0;
+      @media (max-width: 768px) {
+        width: 250px;
+        height: 250px;
+      }
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+        transition: transform 0.2s;
       }
     }
     /* 

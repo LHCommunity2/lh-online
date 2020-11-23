@@ -5,8 +5,6 @@ import Icons from "../icons/icons";
 import Theme from "../../styles/CssVariables";
 import { GlobalStateContext } from "../../Context/GlobalState";
 
-//* Note : Video Responsive
-
 const HomeStyled = styled.div`
   top: 0;
 
@@ -43,6 +41,7 @@ const HomeStyled = styled.div`
 
   .section {
     display: none;
+
     h1 {
       font-family: var(--font-sans);
       max-width: 100px;

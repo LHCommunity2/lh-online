@@ -82,6 +82,23 @@ const GlobalStyled = createGlobalStyle`
       }
   }
 
+
+  .line-small {
+    text-decoration: none;
+    position: absolute;
+    margin: 0 10px 0;
+      &:after {
+        margin: -10px 0 0;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 10px;
+        background-color: #5f98fc;
+        transition: ease-in width 0.3s;
+      }
+  }
+
+
   .title-heading {
     margin: 20px 0;
     max-width: 650px;
@@ -194,7 +211,7 @@ const GlobalStyled = createGlobalStyle`
     transition: var(--transition);
 
     @media (max-width: 1080px) {
-      padding: 0 100px 90px;
+      padding: 0 150px 90px;
     }
 
     @media (max-width: 768px) {
