@@ -1,5 +1,16 @@
 import React from "react";
-import { Menu, Heart, Peace, Users, Location, Group, Gadget } from "./index";
+import {
+  Menu,
+  Heart,
+  Peace,
+  Users,
+  Location,
+  Group,
+  Gadget,
+  Facebook,
+  Youtube,
+  Twitter,
+} from "./index";
 
 interface PropTypes {
   name: string;
@@ -21,6 +32,12 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
       return <Group />;
     case "Gadget":
       return <Gadget />;
+    case "Facebook":
+      return <Facebook />;
+    case "Youtube":
+      return <Youtube />;
+    case "Twitter":
+      return <Twitter />;
   }
 };
 

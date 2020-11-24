@@ -8,8 +8,6 @@ import { GlobalStateContext } from "../../Context/GlobalState";
 const HomeStyled = styled.div`
   top: 0;
 
-  ${Theme.boxShadow}
-
   @media (max-width: 1080px) {
     padding: 80px 100px;
   }

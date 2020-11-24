@@ -26,13 +26,15 @@ const GlobalStyled = createGlobalStyle`
 
   :root {
     --green : #00D63E;
-    --green-shadow: rgba(35, 163, 41, 0.7)
-    --brown : #1C2427,
-    --pink : #AD8184,
+    --green-shadow: rgba(35, 163, 41, 0.7);
+    --brown : #1C2427;
+    --pink : #AD8184;
     --semi-black : #22343F;
     --dirty-white : #A68585;
     --white : #FFFFFF;
+    --semi-white : #FEF5F5;
     --blue : #4789FF;
+    --red : #FF083D;
     --light-blue : #9bb6e4;
     --dark-blue :  rgba(73, 63, 104, 0.5);
     --green-tint: rgba(100, 255, 218, 0.1);
@@ -77,7 +79,7 @@ const GlobalStyled = createGlobalStyle`
         display: block;
         width: 100%;
         height: 50px;
-        background-color: #5f98fc;
+        background-color: var(--light-blue);
         transition: ease-in width 0.3s;
       }
   }
@@ -128,6 +130,7 @@ const GlobalStyled = createGlobalStyle`
   .line-animation {
     text-decoration: none;
     color : var(--white);
+    position: absolute;
     z-index : 10;
 
     &:after {
@@ -135,8 +138,8 @@ const GlobalStyled = createGlobalStyle`
       content: "";
       display: block;
       width: 0px;
-      height: 1px;
-      background-color: var(--white);
+      height: 2px;
+      background-color: var(--red);
       transition: width 0.3s;
     }
 
@@ -207,7 +210,7 @@ const GlobalStyled = createGlobalStyle`
   section {
     margin : 0 auto;
     max-width: 1100px;
-    padding: 0 0 180px;
+    padding: 0 0 170px;
     transition: var(--transition);
 
     @media (max-width: 1080px) {
