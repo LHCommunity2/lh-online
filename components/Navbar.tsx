@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SideBarLinks } from "../utils/config";
+import Theme from "../styles/CssVariables";
 import Link from "next/link";
+
+import Icons from "./icons/icons";
 
 interface StyleTypes {
   isScroll: boolean;
+  dark: boolean;
+}
+
+interface PropTypes {
+  state: boolean;
+  isDark: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 }
 
 const NavbarStyled = styled.div<StyleTypes>`
+  box-shadow: 0 1px 2px
+    ${({ isScroll, dark }) =>
+      isScroll ? (dark ? "transparent" : "#eee9e9") : "transparent"};
   font-family: var(--font-sans);
   display: flex;
   justify-content: flex-end;
   width: 100%;
   padding: ${({ isScroll }) => (isScroll ? "3px 60px" : "15px 60px")};
   transition: var(--transition);
-  background: ${({ isScroll }) => (isScroll ? "#362525" : "transparent")};
+  background: ${({ isScroll, dark }) =>
+    isScroll ? (dark ? "#362525" : "#fff") : "transparent"};
   position: fixed;
   right: 0;
   top: 0;
@@ -45,7 +58,8 @@ const NavbarStyled = styled.div<StyleTypes>`
 
         &:hover,
         &:focus {
-          color: #fff;
+          border: solid 1px ${({ isScroll }) => (isScroll ? "#362525" : "#fff")};
+          color: ${({ dark }) => (dark ? "#fff" : "#362525")};
         }
       }
 
@@ -56,7 +70,18 @@ const NavbarStyled = styled.div<StyleTypes>`
 
         &:hover,
         &:focus {
-          color: #fff;
+          color: ${({ dark }) => (dark ? "#fff" : "#362525")};
+        }
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+        color: ${(dark) => dark && "#d1c6c6"};
+
+        &:hover {
+          color: ${({ isScroll, dark }) =>
+            isScroll ? (dark ? "#fff" : "#362525") : "#fff"};
         }
       }
 
@@ -68,7 +93,7 @@ const NavbarStyled = styled.div<StyleTypes>`
   }
 `;
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
   const [isScroll, setIsScroll] = useState<boolean>(false);
 
   const onScroll = () => {
@@ -88,7 +113,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <NavbarStyled isScroll={isScroll}>
+    <NavbarStyled isScroll={isScroll} dark={state}>
       <ul>
         {SideBarLinks.map((links: any) => (
           <li key={links.id}>
@@ -97,6 +122,9 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         ))}
+        <li onClick={isDark}>
+          <Icons name={state ? "Sun" : "Moon"} onDark={state} />
+        </li>
       </ul>
     </NavbarStyled>
   );

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import { Navbar } from "../index";
 import Icons from "../icons/icons";
-import Theme from "../../styles/CssVariables";
 import { GlobalStateContext } from "../../Context/GlobalState";
 
 const HomeStyled = styled.div`
@@ -95,13 +93,13 @@ const HomeStyled = styled.div`
 `;
 
 const Home: React.FC = () => {
-  const { state, dispatch } = useContext(GlobalStateContext);
+  const { toggleSide, dispatch1 } = useContext(GlobalStateContext);
 
   const toggle = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
-    dispatch({
+    dispatch1({
       type: "toggleSidebar",
-      payload: { toggleSidebar: !state },
+      payload: { toggleSidebar: !toggleSide },
     });
   };
 
@@ -111,10 +109,9 @@ const Home: React.FC = () => {
 
   return (
     <main>
-      <video id="video" autoPlay muted loop poster="video/Background.png">
+      <video id="video" autoPlay muted loop poster="video/background.png">
         <source src="video/blessing.mp4" type="video/mp4" />
       </video>
-      <Navbar />
       <div className="background main">
         <HomeStyled>
           <div className="menu" onClick={(event) => toggle(event)}>

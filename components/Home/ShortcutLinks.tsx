@@ -30,7 +30,7 @@ const StyledImage = styled.div<StyledTypes>`
 
   &:hover,
   &:focus {
-    transform: translateY(-10px);
+    transform: var(--transform);
     transition: var(--transition);
     /* filter: grayscale(0%); */
   }

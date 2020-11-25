@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { ContentInformation } from "../../utils/config";
 import Icons from "../icons/icons";
+import { GlobalStateContext } from "../../Context/GlobalState";
 //import Image from "next/image";
 
 const StyledImage = styled.div`
@@ -78,6 +79,10 @@ const StyledImage = styled.div`
     } */
   }
 `;
+
+interface StyledProps {
+  isDark: boolean;
+}
 
 const StyledContent = styled.section`
   display: grid;

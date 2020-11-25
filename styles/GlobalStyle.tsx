@@ -1,19 +1,31 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyled = createGlobalStyle`
+interface StyledTyped {
+  isDark: any;
+}
+
+const GlobalStyled = createGlobalStyle<StyledTyped>`
   body {
     padding: 0;
     margin: 0;
-    width : 100%;
+    width : 100%; 
     min-height: 100%;
     overflow-x: hidden;
     font-family: var(--font-segoe);
     font-size: var(--fz-xl);
     line-height: 1;
+    color: #22343f;
+   
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    &.blur {
+    &.dark {
+      background: #181A1B;
+      color: #CAC5BE;
+      fill :  #CAC5BE;
+    }
+
+    /* &.blur {
       overflow: hidden;
 
       .main {
@@ -21,7 +33,7 @@ const GlobalStyled = createGlobalStyle`
         pointer-events: none;
         user-select : none;
       }
-    }
+    } */
   }
 
   :root {
@@ -61,6 +73,7 @@ const GlobalStyled = createGlobalStyle`
 
     --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
     --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --transform : translateY(-10px);
 
     --hamburger-width: 30px;
     --ham-before: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
@@ -104,11 +117,16 @@ const GlobalStyled = createGlobalStyle`
   .title-heading {
     margin: 20px 0;
     max-width: 650px;
-    color: #22343f;
     
     @media (max-width: 495px) {
       font-size: var(--fz-xl);
     }
+  }
+
+  .child-heading {
+      font-weight: bold;
+      font-size: var(--fz-sm);
+      color: #3d5567;
   }
 
   .paragraph {
@@ -139,7 +157,7 @@ const GlobalStyled = createGlobalStyle`
       display: block;
       width: 0px;
       height: 2px;
-      background-color: var(--red);
+      background-color: var(--semi-white);
       transition: width 0.3s;
     }
 

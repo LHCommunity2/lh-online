@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { SideBarLinks } from "../utils/config";
 import { X } from "react-feather";
-import { Helmet } from "react-helmet";
 
 interface StyleTypes {
   toggleSidebar: boolean;
@@ -75,9 +74,6 @@ const SidebarStyled = styled.div`
 const Sidebar: React.FC<PropTypes> = ({ toggleSidebar, close }) => {
   return (
     <>
-      <Helmet>
-        <body className={`${toggleSidebar ? `blur` : ``}`} />
-      </Helmet>
       <Wrapper toggleSidebar={toggleSidebar}>
         <SidebarStyled>
           <div onClick={close}>
