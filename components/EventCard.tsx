@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 const StyledCard = styled.div`
   max-width: 20rem;
@@ -50,7 +51,12 @@ const EventCard: React.FC<PropTypes> = ({ state }) => {
     <>
       <StyledCard>
         <div>
-          <img src={`/image/Content/${state.image}`} alt="" />
+          <Image
+            src={`/image/Content/${state.image}`}
+            alt="Images"
+            width={500}
+            height={350}
+          />
           <div className="card">
             <h1>{state.title}</h1>
             <div

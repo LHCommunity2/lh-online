@@ -23,7 +23,7 @@ const Event: React.FC = () => {
       <h1 className="title-heading">News Event</h1>
       <StyledEvent>
         {EventsMockData.map((info: any) => (
-          <EventCard state={info} />
+          <EventCard key={info.id} state={info} />
         ))}
       </StyledEvent>
     </StyledWrapper>
