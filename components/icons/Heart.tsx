@@ -1,6 +1,6 @@
 import React from "react";
 
-const Heart = () => {
+const Heart: React.FC = () => {
   return (
     <svg
       width="512"

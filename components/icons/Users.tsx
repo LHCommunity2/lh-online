@@ -1,6 +1,6 @@
 import React from "react";
 
-const Users = () => {
+const Users: React.FC = () => {
   return (
     <svg
       width="36"

@@ -10,6 +10,7 @@ import {
   Facebook,
   Youtube,
   Twitter,
+  Arrow,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
@@ -44,6 +45,8 @@ const Icons: React.FC<PropTypes> = ({ name, onDark }) => {
       return <Sun />;
     case "Moon":
       return <Moon />;
+    case "Arrow":
+      return <Arrow />;
   }
 };
 

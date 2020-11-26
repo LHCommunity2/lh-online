@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const StyledCard = styled.div`
-  max-width: 20rem;
+  max-width: 100%;
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: var(--border-radius);
   transition: var(--transition);
-  padding: 0 0 15px;
+  padding: 0 0 20px;
   cursor: pointer;
 
   &:hover,
@@ -28,8 +28,14 @@ const StyledCard = styled.div`
     padding: 10px 15px 0;
     font-size: var(--fz-xs);
 
+    .line {
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid #e9e0e0;
+      margin: 15px auto;
+    }
+
     .paragraph {
-      padding: 0 0 15px;
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 1.5rem;
@@ -65,6 +71,7 @@ const EventCard: React.FC<PropTypes> = ({ state }) => {
                 __html: state.paragraph,
               }}
             />
+            <div className="line" />
             <span>July 12, 2020</span>
           </div>
         </div>
