@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import { dark, light } from "../styles/Theme";
+import { GlobalStateContext } from "../Context/GlobalState";
 
 const StyledCard = styled.div`
   max-width: 100%;
@@ -21,19 +23,11 @@ const StyledCard = styled.div`
     border-radius: 4px 4px 0 0;
     width: 100%;
     height: auto;
-    object-fit: cover;
   }
 
   .card {
     padding: 10px 15px 0;
     font-size: var(--fz-xs);
-
-    .line {
-      width: 100%;
-      height: 1px;
-      border-bottom: 1px solid #e9e0e0;
-      margin: 15px auto;
-    }
 
     .paragraph {
       overflow: hidden;
@@ -53,9 +47,13 @@ interface PropTypes {
 }
 
 const EventCard: React.FC<PropTypes> = ({ state }) => {
+  const { navbar } = useContext(GlobalStateContext);
+
   return (
     <>
-      <StyledCard>
+      <StyledCard
+        style={{ background: navbar ? dark.background : light.background }}
+      >
         <div>
           <Image
             src={`/image/Content/${state.image}`}

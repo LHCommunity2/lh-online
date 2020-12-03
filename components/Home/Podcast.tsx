@@ -2,20 +2,12 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Icons from "../icons/icons";
-import { dark, light } from "../../styles/Theme";
+import { light } from "../../styles/Theme";
 import { GlobalStateContext } from "../../Context/GlobalState";
 
 const StyleWrapper = styled.div`
   background: var(--semi-white);
   padding: 0;
-
-  .dark {
-    background: ${dark.background};
-  }
-
-  .light {
-    background: ${light.background};
-  }
 `;
 
 const StyledPodcast = styled.section`
@@ -121,7 +113,7 @@ const Podcast: React.FC = () => {
               frameBorder="0"
               scrolling="no"
             />
-            <div>
+            <div className="viewSite">
               <Link href="https://anchor.fm/lh-global-community?fbclid=IwAR2ksADWod8ohhgzlNXGMiqTU_Y5mR42x8OpA6dio7mPwQ1S-Mdjz9NH46Y">
                 <a
                   className={`${

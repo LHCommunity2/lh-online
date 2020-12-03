@@ -126,6 +126,13 @@ const EventsMockData = [
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
     image: "Volunteer.jpg",
   },
+  {
+    id: 5,
+    title: "Help Community",
+    paragraph:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+    image: "Volunteer.jpg",
+  },
 ];
 
 export { SideBarLinks, ContentInformation, ShortCutLinks, EventsMockData };

@@ -11,15 +11,17 @@ import {
   Youtube,
   Twitter,
   Arrow,
+  Curve,
+  LinkedIn,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
 interface PropTypes {
   name: string;
-  onDark?: boolean;
+  style?: string;
 }
 
-const Icons: React.FC<PropTypes> = ({ name, onDark }) => {
+const Icons: React.FC<PropTypes> = ({ name, style }) => {
   switch (name) {
     case "Menu":
       return <Menu />;
@@ -47,6 +49,10 @@ const Icons: React.FC<PropTypes> = ({ name, onDark }) => {
       return <Moon />;
     case "Arrow":
       return <Arrow />;
+    case "LinkedIn":
+      return <LinkedIn />;
+    case "Curve":
+      return <Curve style={style} />;
   }
 };
 

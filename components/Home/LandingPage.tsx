@@ -72,24 +72,6 @@ const HomeStyled = styled.div`
       display: block;
     }
   }
-
-  button {
-    cursor: pointer;
-    margin: 50px 0;
-    background: transparent;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    transition: var(--transition);
-    border: solid 1px var(--white);
-    color: var(--white);
-    letter-spacing: 1px;
-    padding: 15px 30px;
-
-    &:hover,
-    &:focus {
-      background-color: var(--green-tint);
-    }
-  }
 `;
 
 const Home: React.FC = () => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SideBarLinks } from "../utils/config";
-import Theme from "../styles/CssVariables";
 import Link from "next/link";
 
 import Icons from "./icons/icons";
@@ -58,7 +57,7 @@ const NavbarStyled = styled.div<StyleTypes>`
 
         &:hover,
         &:focus {
-          border: solid 1px ${({ isScroll }) => (isScroll ? "#362525" : "#fff")};
+          border: solid 1px #eee9e9;
           color: ${({ dark }) => (dark ? "#fff" : "#362525")};
         }
       }
@@ -70,7 +69,7 @@ const NavbarStyled = styled.div<StyleTypes>`
 
         &:hover,
         &:focus {
-          color: ${({ dark }) => (dark ? "#fff" : "#362525")};
+          color: #eee9e9;
         }
       }
 
@@ -123,7 +122,7 @@ const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
           </li>
         ))}
         <li onClick={isDark}>
-          <Icons name={state ? "Sun" : "Moon"} onDark={state} />
+          <Icons name={state ? "Sun" : "Moon"} />
         </li>
       </ul>
     </NavbarStyled>

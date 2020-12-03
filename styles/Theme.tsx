@@ -1,12 +1,12 @@
 const dark = {
-  background: "#3a0002",
-  fill: "#3a0002",
-  color: "#3a0002",
+  background: "#1B1D1E",
+  fill: "#1B1D1E",
+  color: "#1B1D1E",
 };
 
 const light = {
-  background: "#fafafa",
-  fill: "#fafafa",
+  background: "#FAFAFA",
+  fill: "#f8f8f8",
   color: "#FAFAFA",
 };
 

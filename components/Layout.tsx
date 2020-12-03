@@ -1,6 +1,6 @@
 import React, { useContext, Fragment } from "react";
 import { GlobalStyle } from "../styles";
-import { Sidebar, Navbar } from "../components";
+import { Sidebar, Navbar, Footer } from "../components";
 import Head from "next/head";
 import Helmet from "react-helmet";
 import { GlobalStateContext } from "../Context/GlobalState";
@@ -44,6 +44,7 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
       <Sidebar toggleSidebar={toggleSide} close={(event) => toggle(event)} />
       <GlobalStyle isDark={navbar} />
       {children}
+      <Footer />
     </Fragment>
   );
 };

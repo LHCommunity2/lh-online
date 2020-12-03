@@ -28,6 +28,7 @@ const StyledWrapper = styled.div`
 
   button {
     display: flex;
+    outline-style: none;
     justify-content: center;
     align-items: center;
     margin: 50px auto 0;

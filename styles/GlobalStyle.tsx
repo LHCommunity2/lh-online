@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { dark, light } from "./Theme";
 
 interface StyledTyped {
   isDark: any;
@@ -34,6 +35,21 @@ const GlobalStyled = createGlobalStyle<StyledTyped>`
         user-select : none;
       }
     } */
+  }
+
+  .line {
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid #e9e0e0;
+      margin: 15px auto;
+    }
+
+  .dark {
+    background: ${dark.background};
+  }
+
+  .light {
+    background: ${light.background};
   }
 
   :root {
@@ -149,7 +165,6 @@ const GlobalStyled = createGlobalStyle<StyledTyped>`
     text-decoration: none;
     color : var(--white);
     position: absolute;
-    z-index : 10;
 
     &:after {
       margin: 6px 0;
@@ -243,6 +258,25 @@ const GlobalStyled = createGlobalStyle<StyledTyped>`
       padding: 0 20px 25px;
     }
   }
+  
+  button {
+    cursor: pointer;
+    margin: 50px 0;
+    background: transparent;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: var(--transition);
+    border: solid 1px var(--white);
+    color: var(--white);
+    letter-spacing: 1px;
+    padding: 15px 30px;
+
+    &:hover,
+    &:focus {
+      background-color: var(--green-tint);
+    }
+  }
+
 `;
 
 export default GlobalStyled;
