@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Icons from "../icons/icons";
 import { light } from "../../styles/Theme";
 import { GlobalStateContext } from "../../Context/GlobalState";
+import AosInit from "../utils/aos";
 
 const StyleWrapper = styled.div`
   background: var(--semi-white);
@@ -87,8 +88,10 @@ const Podcast: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
   const socialIcons = ["Youtube", "Twitter", "Facebook"];
 
+  useEffect(AosInit, []);
+
   return (
-    <StyleWrapper>
+    <StyleWrapper data-aos="fade-up">
       <div className={`${navbar ? "dark" : "light"}`}>
         <StyledPodcast>
           <div>

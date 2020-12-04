@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Icons from "./icons/icons";
 import Link from "next/link";
-import { SideBarLinks } from "../utils/config";
+import { SideBarLinks } from "./utils/config";
 import { Facebook, Youtube, GitHub } from "react-feather";
 import { dark, light } from "../styles/Theme";
 import { GlobalStateContext } from "../Context/GlobalState";
+import AosInit from "./utils/aos";
 
 const FooterWrapper = styled.div`
   width: 100%;
@@ -14,7 +15,12 @@ const FooterWrapper = styled.div`
   color: var(--white);
   transition: var(--transition);
 
+  @media (max-width: 1080px) {
+    background: var(--blue);
+  }
+
   .curve {
+    display: block;
     svg {
       z-index: -5;
       bottom: 0;
@@ -23,6 +29,10 @@ const FooterWrapper = styled.div`
       position: absolute;
       object-fit: cover;
       fill: ${light.color};
+    }
+
+    @media (max-width: 1080px) {
+      display: none;
     }
   }
 
@@ -51,6 +61,7 @@ const StyledFooter = styled.div<StyledType>`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  transition: var(--transition);
 
   div {
     margin: 0 20px 0 0;
@@ -61,10 +72,52 @@ const StyledFooter = styled.div<StyledType>`
     height: 300px;
   }
 
+  @media (max-width: 1080px) {
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 780px) {
+    div {
+      margin: 0 5px 0 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    div {
+      margin: 15px 5px 0 0;
+    }
+  }
+
   .footer-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-end;
-    color: ${(isDark) => (isDark ? "#fff" : "#fff")};
+    padding-top: 50px;
+
+    ul {
+      li {
+        font-size: 16px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 780px) {
+      justify-content: flex-start;
+      padding: 50px 30px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 50px 20px;
+    }
 
     .Location {
       max-width: 230px;
@@ -92,22 +145,6 @@ const StyledFooter = styled.div<StyledType>`
       }
     }
 
-    .Menu {
-      ul {
-        li {
-          font-size: 16px;
-        }
-      }
-    }
-
-    .contact {
-      ul {
-        li {
-          font-size: 16px;
-        }
-      }
-    }
-
     ul {
       list-style: none;
       padding: 0;
@@ -122,7 +159,7 @@ const StyledFooter = styled.div<StyledType>`
 const Footer: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
 
-  console.log(navbar);
+  useEffect(AosInit, []);
 
   const socialIcons = [
     <Facebook size="22" />,
@@ -134,7 +171,7 @@ const Footer: React.FC = () => {
       <div className="curve">
         <Icons name="Curve" style={navbar ? dark.fill : "var(--blue)"} />
       </div>
-      <StyledFooter isDark={navbar}>
+      <StyledFooter isDark={navbar} data-aos="fade-up">
         <div>
           <img src="/image/Logo.png" alt="" />
         </div>
@@ -161,8 +198,8 @@ const Footer: React.FC = () => {
           <div className="Menu">
             <h3>Menu</h3>
             <ul>
-              {SideBarLinks.map((links: any) => (
-                <li>{links.name}</li>
+              {SideBarLinks.map((links: any, index: number) => (
+                <li key={index}>{links.name}</li>
               ))}
             </ul>
           </div>

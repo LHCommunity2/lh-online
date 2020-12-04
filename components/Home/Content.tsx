@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { ContentInformation } from "../../utils/config";
+import { ContentInformation } from "../utils/config";
 import Icons from "../icons/icons";
-import { GlobalStateContext } from "../../Context/GlobalState";
-//import Image from "next/image";
+import AosInit from "../utils/aos";
 
 const StyledImage = styled.div`
   position: relative;
@@ -26,11 +25,6 @@ const StyledImage = styled.div`
       outline: 0;
       -webkit-filter: var(--webkit-filter-colored);
       filter: var(--filter-colored);
-
-      /* &:after {
-        top: 15px;
-        left: 15px;
-      } */
     }
 
     img {
@@ -52,31 +46,6 @@ const StyledImage = styled.div`
         transition: transform 0.2s;
       }
     }
-    /* 
-    &:before,
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
-
-    &:before {
-      bottom: 0;
-      left: 0;
-      background-color: var(--navy);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--light-blue);
-      left: 50px;
-      bottom: 50px;
-      z-index: -1;
-    } */
   }
 `;
 
@@ -175,10 +144,12 @@ const StyledContent = styled.section`
 `;
 
 const Content: React.FC = () => {
+  useEffect(AosInit, []);
+
   return (
     <>
       {ContentInformation.map((info: any) => (
-        <StyledContent key={info.id}>
+        <StyledContent key={info.id} data-aos="fade-right">
           <div className="project-content">
             <div className="content">
               <div className="icons">

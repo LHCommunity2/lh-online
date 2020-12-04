@@ -4,6 +4,7 @@ import { Sidebar, Navbar, Footer } from "../components";
 import Head from "next/head";
 import Helmet from "react-helmet";
 import { GlobalStateContext } from "../Context/GlobalState";
+import "aos/dist/aos.css";
 
 interface PropTypes {
   children: React.ReactNode;

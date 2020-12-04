@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { SideBarLinks } from "../utils/config";
+import { SideBarLinks } from "./utils/config";
 import { X } from "react-feather";
 
 interface StyleTypes {

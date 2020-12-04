@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { ShortCutLinks } from "../../utils/config";
+import { ShortCutLinks } from "../utils/config";
 import Icons from "../icons/icons";
+import AosInit from "../utils/aos";
 
 interface StyledTypes {
   image: any;
@@ -84,9 +85,11 @@ const StyledShorcutLinks = styled.section`
 `;
 
 const ShortcutLinks: React.FC = () => {
+  useEffect(AosInit, []);
+
   return (
     <>
-      <StyledShorcutLinks>
+      <StyledShorcutLinks data-aos="fade-up">
         <h1 className="title-heading">Discover friends, family, and purpose</h1>
         <div className="items">
           {ShortCutLinks.map((item: any) => (

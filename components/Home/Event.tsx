@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { EventsMockData } from "../../utils/config";
+import { EventsMockData } from "../utils/config";
 import { EventCard } from "../index";
 import Icons from "../icons/icons";
+import AosInit from "../utils/aos";
 
 //*Note : Event Responsive
 
@@ -55,16 +56,20 @@ const StyledWrapper = styled.div`
 `;
 
 const Event: React.FC = () => {
+  useEffect(AosInit, []);
+
   return (
     <StyledWrapper>
       <h1 className="title-heading">News Event</h1>
       <StyledSection>
         <StyledEvent>
-          {EventsMockData.map((info: any) => (
-            <EventCard key={info.id} state={info} />
+          {EventsMockData.map((info: any, index: number) => (
+            <div data-aos="fade-up" key={index}>
+              <EventCard key={info.id} state={info} />
+            </div>
           ))}
         </StyledEvent>
-        <button>
+        <button data-aos="fade-up">
           view more <Icons name="Arrow" />
         </button>
       </StyledSection>

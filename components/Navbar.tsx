@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { SideBarLinks } from "../utils/config";
+import { SideBarLinks } from "./utils/config";
 import Link from "next/link";
 
 import Icons from "./icons/icons";
