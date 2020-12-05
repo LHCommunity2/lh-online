@@ -33,6 +33,10 @@ const HomeStyled = styled.div`
       padding: 0 25px 0;
       display: block;
     }
+
+    @media (max-width: 480px) {
+      padding: 0 3px 0;
+    }
   }
 
   .section {

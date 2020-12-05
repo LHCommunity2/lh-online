@@ -13,6 +13,8 @@ import {
   Arrow,
   Curve,
   LinkedIn,
+  Dart,
+  Person,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
@@ -53,6 +55,10 @@ const Icons: React.FC<PropTypes> = ({ name, style }) => {
       return <LinkedIn />;
     case "Curve":
       return <Curve style={style} />;
+    case "Dart":
+      return <Dart />;
+    case "Person":
+      return <Person />;
   }
 };
 

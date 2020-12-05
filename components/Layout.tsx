@@ -1,9 +1,9 @@
 import React, { useContext, Fragment } from "react";
 import { GlobalStyle } from "../styles";
-import { Sidebar, Navbar, Footer } from "../components";
+import { Sidebar, Navbar, Footer, Event } from "../components";
+import { GlobalStateContext } from "../Context/GlobalState";
 import Head from "next/head";
 import Helmet from "react-helmet";
-import { GlobalStateContext } from "../Context/GlobalState";
 import "aos/dist/aos.css";
 
 interface PropTypes {
@@ -45,6 +45,7 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
       <Sidebar toggleSidebar={toggleSide} close={(event) => toggle(event)} />
       <GlobalStyle isDark={navbar} />
       {children}
+      <Event />
       <Footer />
     </Fragment>
   );

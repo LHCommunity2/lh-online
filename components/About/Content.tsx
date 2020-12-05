@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { ContentInformation } from "../utils/config";
+import aboutData from "../utils/mockDataAbout";
 import Icons from "../icons/icons";
 import AosInit from "../utils/aos";
 
@@ -30,8 +30,8 @@ const StyledImage = styled.div`
     img {
       position: relative;
       object-fit: cover;
-      width: 400px;
-      height: 400px;
+      width: 450px;
+      height: 420px;
       border-radius: var(--border-radius);
       transition: var(--transition);
 
@@ -56,6 +56,7 @@ const StyledContent = styled.section`
   line-height: 1;
   align-items: center;
   font-family: var(--font-segoe);
+  padding: 70px;
 
   @media (max-width: 1080px) {
     display: block;
@@ -67,6 +68,10 @@ const StyledContent = styled.section`
 
   @media (max-width: 480px) {
     margin-bottom: 30px;
+  }
+
+  .paragraph {
+    font-size: var(--fz-lg);
   }
 
   .learnMore {
@@ -144,7 +149,7 @@ const Content: React.FC = () => {
 
   return (
     <>
-      {ContentInformation.map((info: any) => (
+      {aboutData.map((info: any) => (
         <StyledContent key={info.id} data-aos="fade-right">
           <div className="project-content">
             <div className="content">
@@ -159,7 +164,7 @@ const Content: React.FC = () => {
               />
 
               <div className="learnMore">
-                <span>Learn More</span>
+                <span>{info.learnMore}</span>
               </div>
             </div>
           </div>

@@ -2,12 +2,12 @@ const SideBarLinks = [
   {
     id: "#home",
     name: "Home",
-    link: "",
+    link: "/",
   },
   {
     id: "#about",
     name: "About us",
-    link: "",
+    link: "/AboutUs",
   },
   {
     id: "#podcast",
@@ -17,7 +17,7 @@ const SideBarLinks = [
   {
     id: "#location",
     name: "Location",
-    link: "",
+    link: "/Location",
   },
   {
     id: "#leadersAndMembers",
@@ -56,7 +56,7 @@ const ContentInformation = [
     icon: "Heart",
     title:
       "Success is linked to the way you look at yourself and your relationship",
-    image: "third.png",
+    image: "third.jpg",
     className: "wrapper",
     paragraph:
       "Success is linked to the way you look at yourself and your relationship with other people. It is a way of helping meet the personal needs of people towards the fullness of life.",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SideBarLinks } from "./utils/config";
 import Link from "next/link";
-
+import Image from "next/image";
 import Icons from "./icons/icons";
 
 interface StyleTypes {
@@ -21,9 +21,10 @@ const NavbarStyled = styled.div<StyleTypes>`
       isScroll ? (dark ? "transparent" : "#eee9e9") : "transparent"};
   font-family: var(--font-sans);
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  padding: ${({ isScroll }) => (isScroll ? "3px 60px" : "15px 60px")};
+  align-items: center;
+  justify-content: space-between;
+  width: 92%;
+  padding: ${({ isScroll }) => (isScroll ? "3px 60px" : "3px 60px")};
   transition: var(--transition);
   background: ${({ isScroll, dark }) =>
     isScroll ? (dark ? "#362525" : "#fff") : "transparent"};
@@ -31,6 +32,24 @@ const NavbarStyled = styled.div<StyleTypes>`
   right: 0;
   top: 0;
   z-index: 1;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .logo1 {
+      width: 45px;
+      height: 45px;
+    }
+
+    span {
+      font-weight: bold;
+      color: #eee9e9;
+      margin: 0 10px;
+      /* display: ${({ isScroll, dark }) =>
+        isScroll ? dark && "block" : "none"}; */
+    }
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -113,6 +132,14 @@ const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
 
   return (
     <NavbarStyled isScroll={isScroll} dark={state}>
+      <div className="logo">
+        <img
+          src={`${isScroll ? "/image/Logo2.svg" : "/image/Logo.svg"}`}
+          className="logo1"
+          alt=""
+        />
+        <span>LH Global Community</span>
+      </div>
       <ul>
         {SideBarLinks.map((links: any) => (
           <li key={links.id}>

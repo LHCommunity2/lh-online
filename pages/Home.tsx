@@ -14,7 +14,6 @@ const Home: React.FC = () => {
       <Content />
       <ShortcutLinks />
       <Podcast />
-      <Event />
     </Fragment>
   );
 };

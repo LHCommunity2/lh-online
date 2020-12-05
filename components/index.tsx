@@ -10,3 +10,10 @@ export { default as Content } from "./Home/Content";
 export { default as ShortcutLinks } from "./Home/ShortcutLinks";
 export { default as Podcast } from "./Home/Podcast";
 export { default as Event } from "./Home/Event";
+
+//*About
+export { default as AboutHeader } from "./About/AboutHeader";
+export { default as ContentAbout } from "./About/Content";
+
+//*Location
+export { default as LocationHeader } from "./Location/LocationHeader";

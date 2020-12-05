@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
       </div>
       <StyledFooter isDark={navbar} data-aos="fade-up">
         <div>
-          <img src="/image/Logo.png" alt="" />
+          <img src="/image/Logo2.svg" alt="" />
         </div>
         <div className="footer-content">
           <div className="Location">
