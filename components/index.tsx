@@ -17,3 +17,4 @@ export { default as ContentAbout } from "./About/Content";
 
 //*Location
 export { default as LocationHeader } from "./Location/LocationHeader";
+export { default as Map } from "./Location/Map";

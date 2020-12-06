@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import Icons from "../icons/icons";
 import { GlobalStateContext } from "../../Context/GlobalState";
 
 const HomeStyled = styled.div`
@@ -16,27 +15,6 @@ const HomeStyled = styled.div`
 
   @media (max-width: 492px) {
     padding: 30px 20px;
-  }
-
-  .menu {
-    display: none;
-    text-align: right;
-
-    svg {
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-    }
-
-    @media (max-width: 768px) {
-      transition: var(--transition);
-      padding: 0 25px 0;
-      display: block;
-    }
-
-    @media (max-width: 480px) {
-      padding: 0 3px 0;
-    }
   }
 
   .section {
@@ -100,9 +78,6 @@ const Home: React.FC = () => {
       </video>
       <div className="background main">
         <HomeStyled>
-          <div className="menu" onClick={(event) => toggle(event)}>
-            <Icons name="Menu" />
-          </div>
           <div className="section">
             <h1>
               LIFE <span className="line-big">CHANGE</span>

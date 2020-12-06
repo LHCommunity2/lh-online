@@ -1,19 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalStateContext } from "../Context/GlobalState";
 import styled from "styled-components";
 import { SideBarLinks } from "./utils/config";
 import Link from "next/link";
-import Image from "next/image";
 import Icons from "./icons/icons";
 
 interface StyleTypes {
   isScroll: boolean;
-  dark: boolean;
+  dark?: boolean;
 }
 
 interface PropTypes {
   state: boolean;
   isDark: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 }
+
+const NavWrapper = styled.div<StyleTypes>`
+  .menu {
+    box-shadow: 0 1px 2px
+      ${({ isScroll }) => (isScroll ? "#eee9e9" : "transparent")};
+    position: fixed;
+    top: 0px;
+    right: 0;
+    z-index: 1;
+    display: none;
+    text-align: right;
+    width: 100%;
+    background: ${({ isScroll }) => (isScroll ? "#fff" : "#transparent")};
+
+    svg {
+      cursor: pointer;
+      transition: var(--transition);
+      padding: ${({ isScroll }) => (isScroll ? "10px 0" : "20px 0")};
+      width: 40px;
+      height: 40px;
+      fill: ${({ isScroll }) => (isScroll ? "#c4baba" : "#fff")};
+    }
+
+    @media (max-width: 768px) {
+      transition: var(--transition);
+      padding: 0 25px 0;
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      right: 5px;
+    }
+  }
+`;
 
 const NavbarStyled = styled.div<StyleTypes>`
   box-shadow: 0 1px 2px
@@ -113,6 +147,7 @@ const NavbarStyled = styled.div<StyleTypes>`
 
 const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
   const [isScroll, setIsScroll] = useState<boolean>(false);
+  const { dispatch1, toggleSide } = useContext(GlobalStateContext);
 
   const onScroll = () => {
     const isDown = window.scrollY > 50;
@@ -124,6 +159,15 @@ const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
     }
   };
 
+  const toggle = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    event.preventDefault();
+
+    dispatch1({
+      type: "toggleSidebar",
+      payload: { toggleSidebar: !toggleSide },
+    });
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
 
@@ -131,28 +175,33 @@ const Navbar: React.FC<PropTypes> = ({ isDark, state }) => {
   }, []);
 
   return (
-    <NavbarStyled isScroll={isScroll} dark={state}>
-      <div className="logo">
-        <img
-          src={`${isScroll ? "/image/Logo2.svg" : "/image/Logo.svg"}`}
-          className="logo1"
-          alt=""
-        />
-        <span>LH Global Community</span>
+    <NavWrapper isScroll={isScroll}>
+      <div className="menu" onClick={(event) => toggle(event)}>
+        <Icons name="Menu" />
       </div>
-      <ul>
-        {SideBarLinks.map((links: any) => (
-          <li key={links.id}>
-            <Link href={links.link}>
-              <a>{links.name}</a>
-            </Link>
+      <NavbarStyled isScroll={isScroll} dark={state}>
+        <div className="logo">
+          <img
+            src={`${isScroll ? "/image/Logo2.svg" : "/image/Logo.svg"}`}
+            className="logo1"
+            alt=""
+          />
+          <span>LH Global Community</span>
+        </div>
+        <ul>
+          {SideBarLinks.map((links: any) => (
+            <li key={links.id}>
+              <Link href={links.link}>
+                <a>{links.name}</a>
+              </Link>
+            </li>
+          ))}
+          <li onClick={isDark}>
+            <Icons name={state ? "Sun" : "Moon"} />
           </li>
-        ))}
-        <li onClick={isDark}>
-          <Icons name={state ? "Sun" : "Moon"} />
-        </li>
-      </ul>
-    </NavbarStyled>
+        </ul>
+      </NavbarStyled>
+    </NavWrapper>
   );
 };
 

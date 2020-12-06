@@ -5,7 +5,7 @@ const AboutHeader: React.FC = () => {
   return (
     <>
       <HeaderLayout paragraph="" image="/image/About-heading.png">
-        About Us
+        About us
       </HeaderLayout>
     </>
   );

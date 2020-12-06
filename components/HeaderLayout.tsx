@@ -3,44 +3,43 @@ import styled from "styled-components";
 
 const StyledHeader = styled.div`
   margin: 0 0 100px;
-  .header-background {
-    width: 100%;
-    max-width: 850px;
-    background-size: 100% auto;
-    color: var(--white);
-    margin: 0 auto;
+  position: relative;
 
-    .content {
-      line-height: 28px;
-      padding: 10rem;
-      text-align: center;
-      @media (max-width: 1080px) {
-        background-size: cover;
-      }
+  img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+  }
+
+  .content {
+    max-width: 500px;
+    transition: var(--transition);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    line-height: 28px;
+    text-align: center;
+
+    h1 {
+      font-size: 80px;
+      color: var(--white);
 
       @media (max-width: 780px) {
-        height: 50vh;
+        padding: 0;
+        font-size: 50px;
       }
 
-      h1 {
-        font-size: 80px;
-        color: var(--white);
-        margin: 0 auto 10px;
-
-        @media (max-width: 780px) {
-          padding: 0;
-          font-size: 65px;
-        }
-
-        @media (max-width: 495px) {
-          padding: 0;
-        }
+      @media (max-width: 495px) {
+        padding: 0;
+        font-size: 65px;
       }
     }
+  }
 
-    span {
-      font-weight: lighter;
-    }
+  span {
+    font-weight: lighter;
   }
 `;
 
@@ -52,12 +51,11 @@ interface PropTypes {
 
 const AboutUs: React.FC<PropTypes> = ({ children, image, paragraph }) => {
   return (
-    <StyledHeader style={{ backgroundImage: `url(${image})` }}>
-      <div className="header-background">
-        <div className="content">
-          <h1>{children}</h1>
-          <span>{paragraph}</span>
-        </div>
+    <StyledHeader>
+      <img src={image} alt="photo" />
+      <div className="content">
+        <h1>{children}</h1>
+        <span>{paragraph}</span>
       </div>
     </StyledHeader>
   );

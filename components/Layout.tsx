@@ -1,7 +1,8 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import { GlobalStyle } from "../styles";
 import { Sidebar, Navbar, Footer, Event } from "../components";
 import { GlobalStateContext } from "../Context/GlobalState";
+import styled from "styled-components";
 import Head from "next/head";
 import Helmet from "react-helmet";
 import "aos/dist/aos.css";
@@ -9,6 +10,8 @@ import "aos/dist/aos.css";
 interface PropTypes {
   children: React.ReactNode;
 }
+
+const StyledLayout = styled.div``;
 
 const Layout: React.FC<PropTypes> = ({ children }) => {
   const { toggleSide, navbar, dispatch1, dispatch2 } = useContext(
@@ -34,7 +37,7 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
   };
 
   return (
-    <Fragment>
+    <StyledLayout>
       <Head>
         <title>LH Global Community</title>
       </Head>
@@ -47,7 +50,7 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
       {children}
       <Event />
       <Footer />
-    </Fragment>
+    </StyledLayout>
   );
 };
 

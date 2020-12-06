@@ -56,7 +56,6 @@ const StyledContent = styled.section`
   line-height: 1;
   align-items: center;
   font-family: var(--font-segoe);
-  padding: 70px;
 
   @media (max-width: 1080px) {
     display: block;

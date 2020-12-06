@@ -13,3 +13,4 @@ export { default as Facebook } from "./Facebook";
 export { default as LinkedIn } from "./LinkedIn";
 export { default as Person } from "./Person";
 export { default as Dart } from "./Dart";
+export { default as Pin } from "./Pin";

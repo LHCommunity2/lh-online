@@ -15,6 +15,7 @@ import {
   LinkedIn,
   Dart,
   Person,
+  Pin,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
@@ -59,6 +60,8 @@ const Icons: React.FC<PropTypes> = ({ name, style }) => {
       return <Dart />;
     case "Person":
       return <Person />;
+    case "Pin":
+      return <Pin />;
   }
 };
 
