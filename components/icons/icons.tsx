@@ -16,6 +16,8 @@ import {
   Dart,
   Person,
   Pin,
+  Calendar,
+  Cart,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
@@ -62,6 +64,10 @@ const Icons: React.FC<PropTypes> = ({ name, style }) => {
       return <Person />;
     case "Pin":
       return <Pin />;
+    case "Calendar":
+      return <Calendar />;
+    case "Cart":
+      return <Cart />;
   }
 };
 

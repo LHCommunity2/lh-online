@@ -8,6 +8,7 @@ const StyledHeader = styled.div`
   img {
     width: 100%;
     height: 430px;
+    filter: brightness(0.5);
     object-fit: cover;
   }
 

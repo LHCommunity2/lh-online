@@ -39,7 +39,7 @@ const ContentInformation = [
     image: "first.jpg",
     className: "wrapper",
     paragraph:
-      "Identity Development, the way of knowing who you are starts with knowing who created us and for what He created us to be. This is a mentoring strategy of helping people develop the sense of identity towards a sense of purpose.",
+      "Identity Development, the way of knowing who you are starts with knowing who created us and for what He created us to be. This is a mentoring strategy of helping people develop the sense of identity towards a sense of purpose. ",
   },
   {
     id: 2,
@@ -90,49 +90,4 @@ const ShortCutLinks = [
   },
 ];
 
-const EventsMockData = [
-  {
-    id: 1,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "first.jpg",
-  },
-  {
-    id: 2,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "Gadget.jpg",
-  },
-  {
-    id: 3,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "Group.jpg",
-  },
-  {
-    id: 4,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "Location.jpg",
-  },
-  {
-    id: 5,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "Volunteer.jpg",
-  },
-  {
-    id: 5,
-    title: "Help Community",
-    paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
-    image: "Volunteer.jpg",
-  },
-];
-
-export { SideBarLinks, ContentInformation, ShortCutLinks, EventsMockData };
+export { SideBarLinks, ContentInformation, ShortCutLinks };

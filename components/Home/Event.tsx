@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import { EventsMockData } from "../utils/config";
 import { EventCard } from "../index";
 import Icons from "../icons/icons";
 import AosInit from "../utils/aos";
-
-//*Note : Event Responsive
+import { EventsContext } from "../../Context/EventsProvider";
 
 const StyledSection = styled.section``;
 
@@ -13,6 +11,11 @@ const StyledEvent = styled.div`
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  .noEvents {
+    text-align: center;
+    color: var(--dirty-white);
+  }
 `;
 
 const StyledWrapper = styled.div`
@@ -56,22 +59,33 @@ const StyledWrapper = styled.div`
 `;
 
 const Event: React.FC = () => {
+  const { events } = useContext(EventsContext);
   useEffect(AosInit, []);
+
+  console.log(events);
 
   return (
     <StyledWrapper>
       <h1 className="title-heading">News Event</h1>
       <StyledSection>
         <StyledEvent>
-          {EventsMockData.map((info: any, index: number) => (
-            <div data-aos="fade-up" key={index}>
-              <EventCard key={info.id} state={info} />
-            </div>
-          ))}
+          {events.length <= 0 ? (
+            <div className="noEvents">No Events</div>
+          ) : (
+            <>
+              {events.map((cont: any) => (
+                <div data-aos="fade-up" key={cont.id}>
+                  <EventCard state={cont} />
+                </div>
+              ))}
+            </>
+          )}
         </StyledEvent>
-        <button data-aos="fade-up">
-          view more <Icons name="Arrow" />
-        </button>
+        {events.length > 0 && (
+          <button data-aos="fade-up">
+            view more <Icons name="Arrow" />
+          </button>
+        )}
       </StyledSection>
     </StyledWrapper>
   );

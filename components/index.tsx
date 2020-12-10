@@ -18,3 +18,7 @@ export { default as ContentAbout } from "./About/Content";
 //*Location
 export { default as LocationHeader } from "./Location/LocationHeader";
 export { default as Map } from "./Location/Map";
+
+//*SubLayout
+export { default as DarkTheme } from "./DarkTheme";
+export { default as SubLayout } from "./SubLayout";

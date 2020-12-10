@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+import Link from "next/link";
 import styled from "styled-components";
-import Image from "next/image";
 import { dark, light } from "../styles/Theme";
 import { GlobalStateContext } from "../Context/GlobalState";
+import { fromImageToUrl } from "./utils/imageToUrl";
+
+//*get query parameters from events when clicking the card
 
 const StyledCard = styled.div`
   max-width: 100%;
@@ -22,7 +25,8 @@ const StyledCard = styled.div`
     overflow: hidden;
     border-radius: 4px 4px 0 0;
     width: 100%;
-    height: auto;
+    object-fit: cover;
+    height: 180px;
   }
 
   .card {
@@ -32,6 +36,9 @@ const StyledCard = styled.div`
     .paragraph {
       overflow: hidden;
       text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
       line-height: 1.5rem;
       font-size: 1rem;
     }
@@ -51,29 +58,26 @@ const EventCard: React.FC<PropTypes> = ({ state }) => {
 
   return (
     <>
-      <StyledCard
-        style={{ background: navbar ? dark.background : light.background }}
-      >
-        <div>
-          <Image
-            src={`/image/Content/${state.image}`}
-            alt="Images"
-            width={500}
-            height={350}
-          />
-          <div className="card">
-            <h1>{state.title}</h1>
-            <div
-              className="paragraph"
-              dangerouslySetInnerHTML={{
-                __html: state.paragraph,
-              }}
-            />
-            <div className="line" />
-            <span>July 12, 2020</span>
+      <Link href={`/events?title=${state.name}&id=${state.id}`}>
+        <StyledCard
+          style={{ background: navbar ? dark.background : light.background }}
+        >
+          <div>
+            <img src={fromImageToUrl(state.image)} alt="" />
+            <div className="card">
+              <h1>{state.name}</h1>
+              <div
+                className="paragraph"
+                dangerouslySetInnerHTML={{
+                  __html: state.description,
+                }}
+              />
+              <div className="line" />
+              <span>{state.date}</span>
+            </div>
           </div>
-        </div>
-      </StyledCard>
+        </StyledCard>
+      </Link>
     </>
   );
 };
