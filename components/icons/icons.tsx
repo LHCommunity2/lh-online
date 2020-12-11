@@ -18,6 +18,7 @@ import {
   Pin,
   Calendar,
   Cart,
+  Instagram,
 } from "./index";
 import { Sun, Moon } from "react-feather";
 
@@ -56,6 +57,8 @@ const Icons: React.FC<PropTypes> = ({ name, style }) => {
       return <Arrow />;
     case "LinkedIn":
       return <LinkedIn />;
+    case "Instagram":
+      return <Instagram />;
     case "Curve":
       return <Curve style={style} />;
     case "Dart":

@@ -22,7 +22,7 @@ const SideBarLinks = [
   {
     id: "#leadersAndMembers",
     name: "Leaders & Memebers",
-    link: "",
+    link: "/Members",
   },
   {
     id: "#newsEvents",

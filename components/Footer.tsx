@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Icons from "./icons/icons";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import { SideBarLinks } from "./utils/config";
 import { Facebook, Youtube, GitHub } from "react-feather";
 import { dark, light } from "../styles/Theme";
 import { GlobalStateContext } from "../Context/GlobalState";
+import { API_URL } from "./utils/imageToUrl";
 import AosInit from "./utils/aos";
 
 const FooterWrapper = styled.div`
@@ -159,12 +160,51 @@ const StyledFooter = styled.div<StyledType>`
 const Footer: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
 
+  const [social, setSocial] = useState([]);
+
+  const socialLinks = () => {
+    (async () => {
+      await fetch(`${API_URL}/social-links`)
+        .then((response: any) => {
+          if (response.status === 404) {
+            console.log("404 error");
+          }
+
+          if (response.status === 403) {
+            console.log("403 error");
+          }
+
+          return response.json();
+        })
+        .then((data: any) => {
+          setSocial(data);
+        })
+        .catch((error: any) => {
+          console.log(error.message);
+        });
+    })();
+  };
+
+  useEffect(socialLinks, []);
+
   useEffect(AosInit, []);
 
   const socialIcons = [
-    <Facebook size="22" />,
-    <Youtube size="22" />,
-    <GitHub size="22" />,
+    {
+      id: 1,
+      url: "https://www.facebook.com/LHPrimemovers/",
+      icon: <Facebook size="22" />,
+    },
+    {
+      id: 2,
+      url: "https://www.youtube.com/channel/UCcvb9cvgzaiRkrjwTUFQqGA",
+      icon: <Youtube size="22" />,
+    },
+    {
+      id: 3,
+      url: "https://github.com/zneret03/Lh-Global-Community-Online",
+      icon: <GitHub size="22" />,
+    },
   ];
   return (
     <FooterWrapper>
@@ -186,10 +226,10 @@ const Footer: React.FC = () => {
             <button>Location</button>
 
             <ul className="social-links">
-              {socialIcons.map((icon: any, index: number) => (
-                <li key={index}>
-                  <Link href="">
-                    <a>{icon}</a>
+              {socialIcons.map((icon: any) => (
+                <li key={icon.id}>
+                  <Link href={icon.url}>
+                    <a>{icon.icon}</a>
                   </Link>
                 </li>
               ))}
@@ -199,7 +239,11 @@ const Footer: React.FC = () => {
             <h3>Menu</h3>
             <ul>
               {SideBarLinks.map((links: any, index: number) => (
-                <li key={index}>{links.name}</li>
+                <Link href={links.link} key={index}>
+                  <li key={index} style={{ cursor: "pointer" }}>
+                    {links.name}
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

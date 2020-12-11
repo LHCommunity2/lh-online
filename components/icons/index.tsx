@@ -9,6 +9,7 @@ export { default as Youtube } from "./Youtube";
 export { default as Twitter } from "./Twitter";
 export { default as Facebook } from "./Facebook";
 export { default as LinkedIn } from "./LinkedIn";
+export { default as Instagram } from "./Instagram";
 export { default as Person } from "./Person";
 export { default as Curve } from "./Curve";
 export { default as Group } from "./Group";
