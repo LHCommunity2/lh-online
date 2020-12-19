@@ -27,7 +27,7 @@ const SideBarLinks = [
   {
     id: "#newsEvents",
     name: "News & Events",
-    link: "",
+    link: "/Event",
   },
 ];
 

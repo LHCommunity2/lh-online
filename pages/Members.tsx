@@ -22,15 +22,23 @@ const StyledMembers = styled.section`
   .search {
     text-align: right;
     margin-bottom: 50px;
+    transition: var(--transition);
+
     input {
       outline-style: none;
-      font-size: var(--fz-lg);
+      font-size: var(--fz-sm);
       font-weight: lighter;
       height: 35px;
       width: 300px;
-      padding: 0px 10px 0;
-      border: 1px solid #d6cccc;
+      color: #af9e9e;
+      padding: 0px 18px 0;
+      border: 1px solid #f1ecec;
       border-radius: 3px;
+
+      &:hover,
+      &:focus {
+        border: 1px solid #aa9f9f;
+      }
     }
   }
 
@@ -109,6 +117,19 @@ const StyledMembers = styled.section`
 const Members: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
   const [membersInfo, setMembersInfo] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const onSearch = () => {
+    const info = membersInfo.filter((data: any) =>
+      Object.keys(data).some((key: any) =>
+        String(data[key]).toLocaleLowerCase().includes(search.toLowerCase())
+      )
+    );
+
+    setMembersInfo(info);
+  };
+
+  useEffect(onSearch, [search]);
 
   const members = () => {
     (async () => {
@@ -133,7 +154,9 @@ const Members: React.FC = () => {
     })();
   };
 
-  useEffect(members, []);
+  const renderSearch: boolean = search !== "";
+
+  useEffect(members, [renderSearch]);
 
   const social = ["Facebook", "Instagram", "Twitter"];
 
@@ -154,7 +177,13 @@ const Members: React.FC = () => {
           <h1>Get to know our LH Leaders &amp; Members</h1>
         </div>
         <div className="search">
-          <input type="text" placeholder="Search..." />
+          <input
+            value={search}
+            name="search"
+            onChange={(event) => setSearch(event.target.value)}
+            type="text"
+            placeholder="Search..."
+          />
         </div>
         <Masonry
           breakpointCols={responsiveBreakPoint}

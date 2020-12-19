@@ -3,13 +3,12 @@ import { API_URL, fromImageToUrl } from "../components/utils/imageToUrl";
 import { GlobalStateContext } from "../Context/GlobalState";
 import HeaderLayout from "../components/HeaderLayout";
 import { withRouter } from "next/router";
-import { GlobalStyle } from "../styles";
 import Link from "next/link";
 import styled from "styled-components";
 import { Clock } from "react-feather";
 import Icons from "../components/icons/icons";
 import Head from "next/head";
-import { SubLayout, Event, DarkTheme } from "../components";
+import { SubLayout, Event } from "../components";
 
 const StyledSlug = styled.section`
   display: flex;
@@ -190,8 +189,6 @@ const Events: React.FC = (props: any) => {
     <>
       {events !== null && (
         <SubLayout isDark={(event) => isDark(event)} state={navbar}>
-          <GlobalStyle isDark={navbar} />
-          <DarkTheme />
           <Head>
             <title>{events.name}</title>
           </Head>

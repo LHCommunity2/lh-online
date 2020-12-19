@@ -6,7 +6,7 @@ interface IContext {
 }
 
 interface PropTypes {
-  children: React.ReactChild;
+  children: React.ReactNode;
 }
 
 const EventsContext = createContext({} as IContext);

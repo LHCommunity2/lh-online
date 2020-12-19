@@ -19,6 +19,10 @@ export { default as ContentAbout } from "./About/Content";
 export { default as LocationHeader } from "./Location/LocationHeader";
 export { default as Map } from "./Location/Map";
 
+//*Event
+export { default as EventHeader } from "./Event/EventHeader";
+export { default as ListEvents } from "./Event/ListEvents";
+
 //*SubLayout
 export { default as HeaderLayout } from "./HeaderLayout";
 export { default as DarkTheme } from "./DarkTheme";

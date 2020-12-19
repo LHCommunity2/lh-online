@@ -13,7 +13,6 @@ const StyledHeader = styled.div`
   }
 
   .content {
-    max-width: 500px;
     transition: var(--transition);
     position: absolute;
     top: 50%;
@@ -39,8 +38,12 @@ const StyledHeader = styled.div`
     }
   }
 
-  span {
-    font-weight: lighter;
+  .header-paragraph {
+    margin: 0 auto;
+    max-width: 500px;
+    span {
+      font-weight: lighter;
+    }
   }
 `;
 
@@ -56,7 +59,9 @@ const AboutUs: React.FC<PropTypes> = ({ children, image, paragraph }) => {
       <img src={image} alt="photo" />
       <div className="content">
         <h1>{children}</h1>
-        <span>{paragraph}</span>
+        <div className="header-paragraph">
+          <span>{paragraph}</span>
+        </div>
       </div>
     </StyledHeader>
   );

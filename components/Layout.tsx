@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { GlobalStyle } from "../styles";
 import { Sidebar, Event, SubLayout, DarkTheme } from "../components";
 import { GlobalStateContext } from "../Context/GlobalState";
 import styled from "styled-components";
@@ -43,7 +42,6 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
       <DarkTheme />
       <SubLayout isDark={(event) => isDark(event)} state={navbar}>
         <Sidebar toggleSidebar={toggleSide} close={(event) => toggle(event)} />
-        <GlobalStyle isDark={navbar} />
         {children}
         <Event />
       </SubLayout>

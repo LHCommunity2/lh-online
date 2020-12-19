@@ -1,11 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { dark, light } from "./Theme";
 
-interface StyledTyped {
-  isDark: any;
-}
-
-const GlobalStyled = createGlobalStyle<StyledTyped>`
+const GlobalStyled = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
