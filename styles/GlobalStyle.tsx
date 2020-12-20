@@ -258,6 +258,7 @@ const GlobalStyled = createGlobalStyle`
   button {
     cursor: pointer;
     margin: 50px 0;
+    outline: noframes;
     background: transparent;
     border-radius: var(--border-radius);
     text-decoration: none;
@@ -272,7 +273,6 @@ const GlobalStyled = createGlobalStyle`
       background-color: var(--green-tint);
     }
   }
-
 `;
 
 export default GlobalStyled;

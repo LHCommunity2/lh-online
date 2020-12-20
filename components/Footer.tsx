@@ -160,33 +160,6 @@ const StyledFooter = styled.div<StyledType>`
 const Footer: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
 
-  const [social, setSocial] = useState([]);
-
-  const socialLinks = () => {
-    (async () => {
-      await fetch(`${API_URL}/social-links`)
-        .then((response: any) => {
-          if (response.status === 404) {
-            console.log("404 error");
-          }
-
-          if (response.status === 403) {
-            console.log("403 error");
-          }
-
-          return response.json();
-        })
-        .then((data: any) => {
-          setSocial(data);
-        })
-        .catch((error: any) => {
-          console.log(error.message);
-        });
-    })();
-  };
-
-  useEffect(socialLinks, []);
-
   useEffect(AosInit, []);
 
   const socialIcons = [
@@ -223,7 +196,9 @@ const Footer: React.FC = () => {
               Philippines
             </p>
 
-            <button>Location</button>
+            <Link href="/Location">
+              <button>Location</button>
+            </Link>
 
             <ul className="social-links">
               {socialIcons.map((icon: any) => (

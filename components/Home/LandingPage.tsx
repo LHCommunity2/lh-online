@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import { GlobalStateContext } from "../../Context/GlobalState";
 
@@ -89,7 +90,9 @@ const Home: React.FC = () => {
               Ephesians 3:20
             </p>
 
-            <button>NEWS EVENT</button>
+            <Link href="/Event">
+              <button>NEWS EVENT</button>
+            </Link>
           </div>
         </HomeStyled>
       </div>

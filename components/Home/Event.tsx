@@ -16,7 +16,9 @@ const Event: React.FC = () => {
   const eventSlice = events.slice(0, GRID_LIMIT);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      style={{ marginBottom: eventSlice.length <= 0 ? "300px" : "0px" }}
+    >
       <div className="header-text ">
         <h1 className="title-heading">News Event</h1>
       </div>

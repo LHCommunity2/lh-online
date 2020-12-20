@@ -1,5 +1,5 @@
 export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+  process.env.NEXT_PUBLIC_API_URL || "https://lh-backend.herokuapp.com";
 
 export const fromImageToUrl = (image: any) => {
   if (!image) {

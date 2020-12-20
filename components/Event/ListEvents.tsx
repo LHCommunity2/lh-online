@@ -7,7 +7,9 @@ const ListEvents: React.FC = () => {
   const { events } = useContext(EventsContext);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper
+      style={{ marginBottom: events.length <= 0 ? "150px" : "0px" }}
+    >
       <div className="header-text ">
         <h1 className="title-heading">Check our upcoming events</h1>
         <p>
