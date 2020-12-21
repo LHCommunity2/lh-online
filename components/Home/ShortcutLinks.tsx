@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ShortCutLinks } from "../utils/config";
 import Icons from "../icons/icons";
+import Link from "next/link";
 import AosInit from "../utils/aos";
 
 interface StyledTypes {
@@ -93,15 +94,16 @@ const ShortcutLinks: React.FC = () => {
         <h1 className="title-heading">Discover friends, family, and purpose</h1>
         <div className="items">
           {ShortCutLinks.map((item: any) => (
-            <StyledImage key={item.id} image={item.image}>
-              <div>
-                <div className="icon">
-                  <Icons name={item.icon} />
+            <Link href={item.link} key={item.id}>
+              <StyledImage image={item.image}>
+                <div>
+                  <div className="icon">
+                    <Icons name={item.icon} />
+                  </div>
+                  <span>{item.title}</span>
                 </div>
-
-                <span>{item.title}</span>
-              </div>
-            </StyledImage>
+              </StyledImage>
+            </Link>
           ))}
           <div className="square" />
         </div>

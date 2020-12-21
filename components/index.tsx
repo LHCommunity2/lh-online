@@ -23,6 +23,10 @@ export { default as Map } from "./Location/Map";
 export { default as EventHeader } from "./Event/EventHeader";
 export { default as ListEvents } from "./Event/ListEvents";
 
+//*Members
+export { default as MemberHeader } from "./Members/MemberHeader";
+export { default as MemberContent } from "./Members/MemberContent";
+
 //*SubLayout
 export { default as HeaderLayout } from "./HeaderLayout";
 export { default as DarkTheme } from "./DarkTheme";

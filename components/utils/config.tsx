@@ -69,24 +69,30 @@ const ShortCutLinks = [
     image: "Location.jpg",
     title: "Fing organization Location",
     icon: "Location",
+    link: "/Location",
   },
   {
     id: 2,
     image: "Group.jpg",
     title: "Connect with the small group",
     icon: "Group",
+    link:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf4v5_JJmxNagJEVUoV9HfKb581XPwfcxcv0ddNgY2slY_uHA/viewform",
   },
   {
     id: 3,
     image: "Volunteer.jpg",
     title: "What to do good? Volunteer today.",
     icon: "Heart",
+    link:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf4v5_JJmxNagJEVUoV9HfKb581XPwfcxcv0ddNgY2slY_uHA/viewform",
   },
   {
     id: 4,
     image: "Gadget.jpg",
     title: "Grow spiritually with online tools",
     icon: "Gadget",
+    link: "",
   },
 ];
 
