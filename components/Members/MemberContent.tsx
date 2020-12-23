@@ -2,9 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import Icons from "../icons/icons";
 import styled from "styled-components";
 import Link from "next/link";
+import Fuse from "fuse.js";
 import Masonry from "react-masonry-css";
+import Members from "../utils/Members.json";
 import { GlobalStateContext } from "../../Context/GlobalState";
-import { API_URL, fromImageToUrl } from "../utils/imageToUrl";
+//import { API_URL } from "../utils/imageToUrl";
 
 const StyledMembers = styled.section`
   .title {
@@ -115,47 +117,58 @@ const StyledMembers = styled.section`
 
 const MemberContent: React.FC = () => {
   const { navbar } = useContext(GlobalStateContext);
-  const [membersInfo, setMembersInfo] = useState([]);
+  //const [membersInfo, setMembersInfo] = useState([]);
   const [search, setSearch] = useState("");
 
-  const onSearch = () => {
-    const info = membersInfo.filter((data: any) =>
-      Object.keys(data).some((key: any) =>
-        String(data[key]).toLocaleLowerCase().includes(search.toLowerCase())
-      )
-    );
+  // const onSearch = () => {
+  //   const info = membersInfo.filter((data: any) =>
+  //     Object.keys(data).some((key: any) =>
+  //       String(data[key]).toLocaleLowerCase().includes(search.toLowerCase())
+  //     )
+  //   );
 
-    setMembersInfo(info);
+  //   setMembersInfo(info);
+  // };
+
+  //useEffect(onSearch, [search]);
+
+  // const members = () => {
+  //   (async () => {
+  //     await fetch(`${API_URL}/members`)
+  //       .then((response) => {
+  //         if (response.status === 404) {
+  //           console.log("error 404");
+  //         }
+
+  //         if (response.status === 403) {
+  //           console.log("error 403");
+  //         }
+
+  //         return response.json();
+  //       })
+  //       .then((data: any) => {
+  //         setMembersInfo(data);
+  //       })
+  //       .catch((error: any) => {
+  //         console.log(error.message);
+  //       });
+  //   })();
+  // };
+
+  //const renderSearch: boolean = search !== "";
+
+  //useEffect(members, [renderSearch]);
+
+  const options = {
+    includeScore: true,
+    keys: ["name"],
   };
 
-  useEffect(onSearch, [search]);
-
-  const members = () => {
-    (async () => {
-      await fetch(`${API_URL}/members`)
-        .then((response) => {
-          if (response.status === 404) {
-            console.log("error 404");
-          }
-
-          if (response.status === 403) {
-            console.log("error 403");
-          }
-
-          return response.json();
-        })
-        .then((data: any) => {
-          setMembersInfo(data);
-        })
-        .catch((error: any) => {
-          console.log(error.message);
-        });
-    })();
-  };
-
-  const renderSearch: boolean = search !== "";
-
-  useEffect(members, [renderSearch]);
+  const fuse = new Fuse(Members, options);
+  const searchInformation: any = fuse.search(search);
+  const membersSlice = search
+    ? searchInformation.map((info: any) => info.item)
+    : Members;
 
   const social = ["Facebook", "Instagram", "Twitter"];
 
@@ -184,10 +197,10 @@ const MemberContent: React.FC = () => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {membersInfo.map((info: any) => (
-          <div className="card" key={info.id}>
+        {membersSlice.map((info: any, index: number) => (
+          <div className="card" key={index}>
             <div>
-              <img src={fromImageToUrl(info.profile)} alt="" />
+              <img src={info.image} alt="" />
             </div>
             <span className="member-name">{info.name}</span>
             <div className="card-content">
