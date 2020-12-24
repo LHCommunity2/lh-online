@@ -12,7 +12,7 @@ const SideBarLinks = [
   {
     id: "#podcast",
     name: "Podcast",
-    link: "",
+    link: "/Podcast",
   },
   {
     id: "#location",
