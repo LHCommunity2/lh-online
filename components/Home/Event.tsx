@@ -25,7 +25,7 @@ const Event: React.FC = () => {
       <section>
         <StyledEvent>
           {eventSlice.length <= 0 ? (
-            <div className="noEvents">No Events</div>
+            <div className="noEvents">No Events for now :(</div>
           ) : (
             <>
               {eventSlice.map((cont: any) => (
