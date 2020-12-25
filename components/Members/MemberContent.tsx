@@ -36,6 +36,10 @@ const StyledMembers = styled.section`
       border: 1px solid #f1ecec;
       border-radius: 3px;
 
+      @media (max-width: 480px) {
+        width: 230px;
+      }
+
       &:hover,
       &:focus {
         border: 1px solid #aa9f9f;
