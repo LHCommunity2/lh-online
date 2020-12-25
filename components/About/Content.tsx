@@ -3,6 +3,7 @@ import styled from "styled-components";
 import aboutData from "../utils/mockDataAbout";
 import Icons from "../icons/icons";
 import AosInit from "../utils/aos";
+import Image from "next/image";
 
 const StyledImage = styled.div`
   position: relative;
@@ -175,7 +176,12 @@ const Content: React.FC = () => {
                 width={500}
                 height={500}
               /> */}
-              <img src={`/image/Content/${info.image}`} alt="" />
+              <Image
+                width={450}
+                height={420}
+                src={`/image/Content/${info.image}`}
+                alt="about us image"
+              />
             </div>
           </StyledImage>
         </StyledContent>

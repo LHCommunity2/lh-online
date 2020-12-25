@@ -56,7 +56,9 @@ interface PropTypes {
 const AboutUs: React.FC<PropTypes> = ({ children, image, paragraph }) => {
   return (
     <StyledHeader>
-      <img src={image} alt="photo" />
+      <picture>
+        <img src={image} alt="photo" />
+      </picture>
       <div className="content">
         <h1>{children}</h1>
         <div className="header-paragraph">

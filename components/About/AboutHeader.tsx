@@ -4,7 +4,7 @@ import HeaderLayout from "../HeaderLayout";
 const AboutHeader: React.FC = () => {
   return (
     <>
-      <HeaderLayout paragraph="" image="/image/About-heading.png">
+      <HeaderLayout paragraph="" image="/image/About-heading.jpeg">
         About us
       </HeaderLayout>
     </>

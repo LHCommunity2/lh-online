@@ -3,6 +3,7 @@ import { StyledContent, StyledImage } from "../../styles/StyledContent";
 import { ContentInformation } from "../utils/config";
 import Icons from "../icons/icons";
 import AosInit from "../utils/aos";
+import Image from "next/image";
 
 const Content: React.FC = () => {
   useEffect(AosInit, []);
@@ -36,7 +37,12 @@ const Content: React.FC = () => {
                 width={500}
                 height={500}
               /> */}
-              <img src={`/image/Content/${info.image}`} alt="" />
+              <Image
+                src={`/image/Content/${info.image}`}
+                alt="images"
+                width={400}
+                height={400}
+              />
             </div>
           </StyledImage>
         </StyledContent>

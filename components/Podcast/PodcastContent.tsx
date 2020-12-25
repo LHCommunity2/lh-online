@@ -6,6 +6,7 @@ import AosInit from "../utils/aos";
 import { GlobalStateContext } from "../../Context/GlobalState";
 import { StyledContent, StyledImage } from "../../styles/StyledContent";
 import styled from "styled-components";
+import Image from "next/image";
 
 const StyledPodcastContent = styled.div`
   position: relative;
@@ -80,7 +81,7 @@ const PodcastContent: React.FC = () => {
                 width={500}
                 height={500}
               /> */}
-            <img src={`/image/gadget.jpg`} alt="" />
+            <Image width={400} height={400} src={`/image/gadget.jpg`} alt="" />
           </div>
         </StyledImage>
       </StyledContent>

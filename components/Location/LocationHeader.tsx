@@ -6,7 +6,7 @@ const AboutHeader: React.FC = () => {
     <>
       <HeaderLayout
         paragraph="Lets enjoy and wortship his presence with fellow LH members"
-        image="/image/Location.png"
+        image="/image/Location.jpg"
       >
         Location
       </HeaderLayout>
